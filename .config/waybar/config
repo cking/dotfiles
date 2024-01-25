@@ -1,0 +1,140 @@
+{
+    "clock":
+    {
+        "format": " {:%H:%M:%S}",
+        "format-alt": " {:%Y-%m-%d}",
+        "interval": 1,
+        "on-click-right": "wl-copy $(date '+%Y-%m-%d %T')",
+        "tooltip-format": "{calendar}"
+    },
+    "cpu":
+    {
+        "format": " {load} {usage}%",
+        "on-click": "alacritty -e htop"
+    },
+    "layer": "top",
+    "memory":
+    {
+        "format": " {percentage}%"
+    },
+    "modules-center":
+    [],
+    "modules-left":
+    [
+        "sway/workspaces",
+        "sway/mode",
+        "wlr/taskbar",
+        "sway/window"
+    ],
+    "modules-right":
+    [
+        "pulseaudio",
+        "custom/mediaplayer",
+        "network",
+        "network#eth",
+        "network#wlan",
+        "cpu",
+        "memory",
+        "temperature",
+        "battery",
+        "clock",
+        "tray"
+    ],
+    "mpd":
+    {},
+    "custom/mediaplayer":
+    {
+        "format": "{icon}{}",
+        "return-type": "json",
+        "format-icons":
+        {
+            "Playing": " ",
+            "Paused": " "
+        },
+        "max-length": 70,
+        "exec": "playerctl -a metadata --format '{\"hack\": \"{{status}}\", \"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{status}} {{playerName}} : {{artist}} - {{markup_escape(title)}} [{{album}}]\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click": "playerctl play-pause"
+    },
+    "network":
+    {
+        "interface": "*p*",
+        "format-disconnected": "",
+        "format-ethernet": " {ipaddr}",
+        "format-wifi": " {ipaddr} ({signalStrength}%)",
+        "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
+        "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)"
+    },
+    "network#eth":
+    {
+        "interface": "eth*",
+        "format-disconnected": "",
+        "format-ethernet": " {ipaddr}",
+        "format-wifi": " {ipaddr} ({signalStrength}%)",
+        "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
+        "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)"
+    },
+    "network#wlan":
+    {
+        "interface": "wlan*",
+        "format-disconnected": "",
+        "format-ethernet": " {ipaddr}",
+        "format-wifi": " {ipaddr} ({signalStrength}%)",
+        "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
+        "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)"
+    },
+    "pulseaudio":
+    {
+        "format": " {volume}%",
+        "format-bluetooth": " {volume}% ",
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+    "sway/mode":
+    {
+        "format": "[{}]"
+    },
+    "sway/window":
+    {
+        "all-outputs": true,
+        "format": "  {}",
+        "icon": true
+    },
+    "sway/workspaces":
+    {
+        "all-outputs": false,
+        "disable-scroll": true,
+        "format": " {icon} {name} ",
+        "format-icons":
+        {
+            "1: Main": "",
+            "2: Web": "",
+            "3: Dev": "",
+            "4: Games": "",
+            "5: Misc": "",
+            "6: Weeb": "",
+            "7: DL": "",
+            "8: IM": "",
+            "9: Music": "",
+            "default": "",
+            "focused": "",
+            "urgent": ""
+        }
+    },
+    "temperature":
+    {
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
+        "thermal-zone": "thermal_zone0"
+    },
+    "tray":
+    {
+        "show-passive-items": true,
+        "spacing": 10
+    },
+    "wlr/taskbar":
+    {
+        "on-click": "activate",
+        "on-click-middle": "close"
+    }
+}

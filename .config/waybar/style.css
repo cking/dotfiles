@@ -1,0 +1,139 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Fantasque Sans Mono";
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(0,0,0,0.8);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 5px;
+}
+
+#workspaces button {
+	background: rgba(0, 0, 0, 0.4);
+    padding: 0 5px;
+    color: #ffffff;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button:hover {
+	padding: 0 5px;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+	background: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button.focused {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#mode {
+    background: rgba(0, 0, 0, 0.3);
+    font-style: italic;
+}
+
+#mode, #workspaces button.focused {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+#clock,
+#mpd,
+#custom-mediaplayer,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-pape,
+#tray,
+#mode {
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
+#custom-mediaplayer,
+#mpd {
+    background-color: rgba(255, 128, 128, 0.6);
+}
+
+#clock {
+    background-color: rgba(128, 128, 128, 0.6);
+}
+
+#battery {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #000000;
+}
+
+#battery.charging {
+    color: #ffffff;
+    background-color: rgba(38, 166, 91, 0.6);
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: rgba(245, 60, 60, 0.6);
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+    background: rgba(46, 204, 113, 0.6);
+    color: #000000;
+}
+
+#memory {
+    background: rgba(155, 89, 182, 0.6);
+}
+
+#network {
+    background: rgba(41, 128, 185, 0.6);
+}
+
+#network.disconnected {
+    background: rgba(245, 60, 60, 0.6);
+}
+
+#pulseaudio {
+    background: rgba(241, 196, 15, 0.6);
+    color: #000000;
+}
+
+#pulseaudio.muted {
+    background: #90b1b1;
+    color: #2a5c45;
+}
+
+#custom-pape {
+    background: rgba(244, 173, 66, 0.6);
+    color: black;
+}
+
+#temperature {
+    background: #f0932b;
+}
+
+#temperature.critical {
+    background: #eb4d4b;
+}
+
+#tray {
+    background-color: rgba(41, 128, 185, 0.6);
+    margin-right: 0;
+}
