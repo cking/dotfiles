@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doublecmd>
+  <History>
+    <Navigation>
+      <Item>/home/criss/Nextcloud/Photos/</Item>
+      <Item>/home/criss/Nextcloud/</Item>
+      <Item>/home/criss/</Item>
+      <Item>/home/</Item>
+      <Item>/home/criss/Downloads/</Item>
+      <Item>/home/criss/Downloads/tmp/</Item>
+      <Item>/home/criss/Downloads/Scott Pilgrim vs. the World (2010) (1080p BluRay x265 HEVC 10bit AAC 5.1 afm72)/</Item>
+      <Item>/home/criss/Projects/cocktail-automat/frontend/static/</Item>
+      <Item>/home/criss/Projects/cocktail-automat/frontend/</Item>
+      <Item>/mnt/tmp/</Item>
+      <Item>/mnt/tmp/BSD/</Item>
+      <Item>/mnt/tmp/DOS/</Item>
+      <Item>/mnt/</Item>
+      <Item>/mnt/ventoy/</Item>
+      <Item>/home/criss/Projects/grove/</Item>
+      <Item>/home/criss/Projects/grove/templates/</Item>
+      <Item>/home/criss/Projects/grove/static/</Item>
+      <Item>/home/criss/Projects/grove/entity/</Item>
+      <Item>/home/criss/Projects/</Item>
+      <Item>/home/criss/Projects/dfr/</Item>
+      <Item>/home/criss/Projects/cocktail-automat/</Item>
+      <Item>/home/criss/Projects/cocktail-automat/src/</Item>
+      <Item>/tmp/</Item>
+      <Item>/tmp/OmniFarmer_Presearing V2.4.1.3/</Item>
+      <Item>/mnt/baracuda/Lutris/guild-wars/dosdevices/c:/users/steamuser/of2/</Item>
+      <Item>/mnt/ventoy/Linux/</Item>
+      <Item>/mnt/ventoy/BSD/</Item>
+      <Item>/home/criss/Downloads/ventoy/</Item>
+      <Item>/mnt/ventoy/Rescue/</Item>
+      <Item>/mnt/ventoy/ventoy/</Item>
+      <Item>/mnt/ventoy/ventoy/themes/</Item>
+      <Item>/mnt/ventoy/ventoy/themes/bigsur/</Item>
+      <Item>/home/criss/Downloads/ventoy/themes/</Item>
+      <Item>/mnt/ventoy/ventoy/theme/</Item>
+      <Item>/mnt/baracuda/SteamLibrary/steamapps/common/Super Neptunia RPG/SuperNeptuniaRPG_Data/Plugins/</Item>
+      <Item>/mnt/baracuda/SteamLibrary/steamapps/common/Super Neptunia RPG/SuperNeptuniaRPG_Data/</Item>
+      <Item>/mnt/baracuda/SteamLibrary/steamapps/common/Super Neptunia RPG/SuperNeptuniaRPG_Data/GI/</Item>
+      <Item>/mnt/baracuda/SteamLibrary/steamapps/common/Super Neptunia RPG/SuperNeptuniaRPG_Data/Managed/</Item>
+      <Item>/mnt/baracuda/SteamLibrary/steamapps/common/Super Neptunia RPG/SuperNeptuniaRPG_Data/Mono/</Item>
+      <Item>/mnt/baracuda/SteamLibrary/steamapps/common/Super Neptunia RPG/SuperNeptuniaRPG_Data/Resources/</Item>
+      <Item>/mnt/baracuda/SteamLibrary/steamapps/common/Super Neptunia RPG/SuperNeptuniaRPG_Data/StreamingAssets/</Item>
+      <Item>/mnt/baracuda/SteamLibrary/steamapps/common/Super Neptunia RPG/</Item>
+      <Item>/mnt/baracuda/SteamLibrary/steamapps/common/</Item>
+      <Item>/mnt/baracuda/SteamLibrary/steamapps/</Item>
+      <Item>/mnt/baracuda/SteamLibrary/</Item>
+      <Item>/mnt/baracuda/</Item>
+      <Item>/home/criss/.steam/steam/steamapps/compatdata/</Item>
+      <Item>/home/criss/.steam/steam/steamapps/</Item>
+      <Item>/home/criss/.steam/steam/</Item>
+      <Item>/home/criss/.steam/</Item>
+      <Item>/home/criss/Applications/CreamInstaller/</Item>
+    </Navigation>
+    <CommandLine>
+      <Item>unrar *.rar</Item>
+      <Item>cd .modpacks</Item>
+    </CommandLine>
+    <FileMask>
+      <Item>*.*</Item>
+    </FileMask>
+    <SearchText/>
+    <SearchTextPath/>
+    <ReplaceText/>
+    <ReplaceTextPath/>
+    <CreateDirectories>
+      <Item>DOS</Item>
+      <Item>theme</Item>
+      <Item>create_haven-0.0.4-1.20.1</Item>
+      <Item>createmr-1.20.1-0.0.6</Item>
+    </CreateDirectories>
+    <RenameNameMask/>
+    <RenameExtMask/>
+    <SearchDirectories/>
+    <SearchExcludeFiles/>
+    <SearchExcludeDirectories/>
+  </History>
+</doublecmd>
