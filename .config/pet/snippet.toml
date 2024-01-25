@@ -1,0 +1,19 @@
+[[snippets]]
+  description = "Create a .keep file in all empty directories"
+  command = "find . -type d -empty -print0 | xargs -0 -I % touch %/.keep"
+  output = ""
+
+[[snippets]]
+  description = "Diplay all listen ports"
+  command = "lsof -Pan -i tcp -i udp"
+  output = ""
+
+[[snippets]]
+  command = "wf-recorder -g $(slurp)"
+  description = "screen recording"
+  output = ""
+
+[[snippets]]
+  command = "eix -I#n | grep -v virtual/ | grep -v acct-"
+  description = "list all installed packages"
+  output = ""
