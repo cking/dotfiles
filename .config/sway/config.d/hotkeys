@@ -1,0 +1,75 @@
+bindsym $mod+d exec fuzzel
+
+bindsym $mod+l exec wlogout
+
+exec i3keys web 45378
+bindsym $mod+h exec firefox http://localhost:45378
+
+exec wl-paste --watch cliphist store
+bindsym $mod+v exec cliphist list | tofi | cliphist decode | wl-copy
+bindsym $mod+Shift+v exec cliphist list | tofi | cliphist delete
+
+bindsym $mod+Return exec footclient
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+f fullscreen
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Control+Shift+Left  move workspace to output left
+bindsym $mod+Control+Shift+Right move workspace to output right
+bindsym $mod+Control+Shift+Up    move workspace to output up
+bindsym $mod+Control+Shift+Down  move workspace to output down
+
+floating_modifier $mod normal
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+bindsym $mod+w layout toggle tabbed stacking
+bindsym $mod+e layout toggle splitv splith
+bindsym $mod+s splitt
+
+bindsym Print exec shotman -c output
+bindsym Alt+Print exec shotman -c window
+bindsym Control+Print exec shotman -c region
+
+bindsym $mod+x exec swaymsg exec sway-prop
+
+bindsym $mod+Shift+period exec rofimoji --selector fuzzel

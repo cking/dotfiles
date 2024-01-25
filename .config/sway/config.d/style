@@ -1,0 +1,16 @@
+client.focused #3c304cff #55436bff #ffffffff
+client.unfocused #333333ff #4c4c4cff #ffffffff
+client.urgent #3c304cff #55436bff #ffffffff
+default_border normal
+default_floating_border normal
+font pango:ProggyVector 8
+titlebar_border_thickness 1
+titlebar_padding 8 3
+focus_follows_mouse no
+gaps {
+	inner 5
+	outer 0
+}
+smart_borders on
+smart_gaps on
+

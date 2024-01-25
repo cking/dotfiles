@@ -1,0 +1,26 @@
+assign [app_id="sublime_text"] $ws3
+assign [app_id="lutris"] $ws4
+assign [app_id="mpv"] $ws6
+assign [class="discord"] $ws8
+
+for_window [class="^.*"] inhibit_idle fullscreen
+for_window [app_id="^.*"] inhibit_idle fullscreen
+
+# firefox
+assign [app_id="firefox"] $ws2
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
+for_window [app_id="firefox" title="Developer Tools -"] floating enable
+
+# messenger
+assign [app_id="org.telegram.desktop"] $ws8
+
+# steam
+assign [class="steam"] $ws4
+for_window [class="steam" title="Steam - News.*"] floating enable
+
+# fcitx
+no_focus [title="im-emoji-picker"]
+
+#gaymez
+for_window [class="awakened-poe-trade"] floating enable
+for_window [app_id="^Yad"] floating enable

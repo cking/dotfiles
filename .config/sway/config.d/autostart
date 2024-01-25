@@ -1,0 +1,6 @@
+exec wpaperd
+
+exec foot -s
+exec fcitx5 -D
+exec mako --font ProggyVector --background-color "#3c304caa" --text-color "#ffffff" --border-color "#ffffff" --icons 1 --markup 1 --actions 1 --history 1 --default-timeout 30000 --ignore-timeout 0 --height 300
+exec_always dex -a
