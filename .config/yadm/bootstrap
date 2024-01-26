@@ -4,6 +4,7 @@ set -eu
 
 . functions.sh
 
-install_package yadm transcrypt
+install_package yadm transcrypt neovim eza pet fish nerdfetch
 
 yadm transcrypt -i me@kurabloodlust.eu
+chsh -s $( env fish )
