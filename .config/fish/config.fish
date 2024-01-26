@@ -1,11 +1,18 @@
+# xdg
+set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_CACHE_HOME $HOME/.cache
+set -gx XDG_STATE_HOME $HOME/.local/state
+set -gx XDG_DATA_HOME $HOME/.local/share
+
 # interactive extensions
 if status is-interactive
     bind . 'expand-dot-to-parent-directory-path'
     bind \cS 'pet-select'
 
-# alias keychain --dir "$XDG_RUNTIME_DIR"/keychain --absolute
-
-    eval (keychain -Q -q ~/.ssh/id_* --eval)
+    keychain --dir $XDG_RUNTIME_DIR --absolute --ignore-missing --quick --quiet 
+    # disable universal export
+    sed -i 's/-U//' $XDG_RUNTIME_DIR/.keychain/*-fish
+    source $XDG_RUNTIME_DIR/.keychain/*-fish
 end
 
 # wayland environments
@@ -13,12 +20,6 @@ if [ "$XDG_SESSION_TYPE" = "wayland" ]
     set -gx MOZ_ENABLE_WAYLAND 1
     set -gx QT_QPA_PLATFORM wayland
 end
-
-# xdg
-set -gx XDG_CONFIG_HOME $HOME/.config
-set -gx XDG_CACHE_HOME $HOME/.cache
-set -gx XDG_STATE_HOME $HOME/.local/state
-set -gx XDG_DATA_HOME $HOME/.local/share
 
 # clean home
 set -gx WINEPREFIX $XDG_DATA_HOME/wine #wine
