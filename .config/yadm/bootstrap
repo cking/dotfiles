@@ -2,9 +2,11 @@
 
 set -eu
 
-. functions.sh
+yadm=$(dirname "$0")
+
+. "$yadm"/functions.sh
 
 install_package yadm transcrypt neovim eza pet fish nerdfetch
 
 yadm transcrypt -i me@kurabloodlust.eu
-chsh -s $( env fish )
+chsh -s "$( env fish )"

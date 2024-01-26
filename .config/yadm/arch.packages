@@ -1,2 +1,10 @@
 transcrypt.pkg=transcrypt
 transcrypt.aur=true
+yadm.pkg=yadm
+neovim.pkg=neovim
+eza.pkg=eza
+pet.pkg=pet-bin
+pet.aur=1
+fish.pkg=fish
+nerdfetch.pkg=nerdfetch
+nerdfetch.aur=1
