@@ -2,9 +2,6 @@ bindsym $mod+d exec fuzzel
 
 bindsym $mod+l exec wlogout
 
-exec i3keys web 45378
-bindsym $mod+h exec firefox http://localhost:45378
-
 exec wl-paste --watch cliphist store
 bindsym $mod+v exec cliphist list | tofi | cliphist decode | wl-copy
 bindsym $mod+Shift+v exec cliphist list | tofi | cliphist delete
@@ -72,4 +69,3 @@ bindsym Control+Print exec shotman -c region
 
 bindsym $mod+x exec swaymsg exec sway-prop
 
-bindsym $mod+Shift+period exec rofimoji --selector fuzzel
