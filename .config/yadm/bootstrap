@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -eu
+
+. functions.sh
+
+install_package yadm transcrypt
+
+yadm transcrypt -i me@kurabloodlust.eu
