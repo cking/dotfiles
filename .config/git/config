@@ -1,10 +1,7 @@
+[include]
+	path = config.local
 [init]
 	defaultBranch = trunk
-[user]
-	name = Ch. König
-	email = me@kurabloodlust.eu
-	signingkey = 7C1BA30146D1028CC1EB6B940F3D4122CBC8DEF0
-
 [alias]
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -18,12 +15,19 @@
 	c = commit
 	co = checkout
 	br = branch
+	bra = branch -a
 	diff = diff --word-diff
 	dc = diff --cached
 	amend = commit --amend
 	ci = commit --interactive
 	a = add -p
 	squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-A new start}\");};f"
+	f = fetch
+	fp = fetch --prune
+	sw = show --format=fuller --stat --patch
+	ri = rebase --interactive
+	r = rebase
+	prune = "!f(){ git fetch --prune origin && git branch --merged | grep -vwE 'main|master|trunk' | xargs git branch -d }; f"
 [format]
 	pretty = "%H %ci %ce %ae %d %s"
 [color]
@@ -39,5 +43,28 @@
 	program = gpg
 [diff]
 	noprefix = true
+	colorMoved = default
+	compactionHeuristic = true
 [cola]
 	spellcheck = false
+[color "diff"]
+	commit = yellow reverse
+[merge]
+	log = true
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[rebase]
+	autosquash = true
+	autostash = true
+[tag]
+	sort = version:refname
+[gitflow "branch"]
+	master = master
+	develop = develop
+[gitflow "prefix"]
+	feature = feature/
+	release = release/
+	hotfix = hotfix/
+	support = support/
+	versiontag =
