@@ -9,3 +9,4 @@ fish.pkg=app-shells/fish
 nerdfetch.pkg=app-misc/nerdfetch
 nerdfetch.repo=guru
 nerdfetch.unmask=keywords
+keychain.pkg=net-misc/keychain
