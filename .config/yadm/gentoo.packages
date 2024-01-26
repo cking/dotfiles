@@ -1,0 +1,11 @@
+yadm.pkg=app-admin/yadm
+transcrypt.pkg=dev-vcs/transcrypt
+transcrypt.repo=nest
+neovim.pkg=app-editors/neovim
+eza.pkg=sys-apps/eza
+pet.pkg=app-misc/pet
+pet.unmask=keywords
+fish.pkg=app-shells/fish
+nerdfetch.pkg=app-misc/nerdfetch
+nerdfetch.repo=guru
+nerdfetch.unmask=keywords
