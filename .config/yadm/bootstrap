@@ -3,6 +3,7 @@
 set -eu
 
 yadm=$(dirname "$0")
+cd "$yadm"
 
 . "$yadm"/functions.sh
 
