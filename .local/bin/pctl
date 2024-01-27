@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if command -v systemctl &> /dev/null; then
+    systemctl "$@"
+else
+    powerctl "$@"
+fi
+

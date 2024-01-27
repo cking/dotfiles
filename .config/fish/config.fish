@@ -8,11 +8,6 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 if status is-interactive
     bind . 'expand-dot-to-parent-directory-path'
     bind \cS 'pet-select'
-
-    keychain --dir $XDG_RUNTIME_DIR --absolute --ignore-missing --quick --quiet 
-    # disable universal export
-    sed -i 's/-U//' $XDG_RUNTIME_DIR/.keychain/*-fish
-    source $XDG_RUNTIME_DIR/.keychain/*-fish
 end
 
 # wayland environments
