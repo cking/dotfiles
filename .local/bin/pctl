@@ -3,6 +3,6 @@
 if command -v systemctl &> /dev/null; then
     systemctl "$@"
 else
-    powerctl "$@"
+    loginctl "$@"
 fi
 
