@@ -67,5 +67,4 @@ bindsym Print exec shotman -c output
 bindsym Alt+Print exec shotman -c window
 bindsym Control+Print exec shotman -c region
 
-bindsym $mod+x exec swaymsg exec sway-prop
-
+bindsym $mod+x exec swaymsg exec ~/.local/bin/sway-prop

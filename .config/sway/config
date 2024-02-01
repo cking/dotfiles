@@ -18,3 +18,4 @@ set $ws0 "10: Dunno"
 
 include /etc/sway/config.d/*
 include config.d/*
+exec_always ~/.config/sway/init

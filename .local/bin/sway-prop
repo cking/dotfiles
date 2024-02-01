@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+# https://gitlab.com/wef/dotfiles/-/blob/master/bin/i3-prop
+# shellcheck disable=SC2034
+TIME_STAMP="20231129.191323"
+
+# Copyright (C) 2020-2021 Bob Hepple <bob dot hepple at gmail dot com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or (at
+# your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+PROG=$( basename "$0" )
+wm="i3"
+msg="i3-msg"
+nag="i3-nagbar"
+term="${TERMINAL:-alacritty --class floating}" # lxterminal and gnome-terminal don't work. urxvt, mrxvt are ok
+[[ "$SWAYSOCK" ]] && {
+    wm="sway"
+    msg="swaymsg"
+    nag="swaynag"
+    [[ "$TERMINAL" ]] || {
+        term=""
+        if type foot &> /dev/null; then
+            term="foot --app-id floating"
+        elif type alacritty &> /dev/null; then
+            term="alacritty --class floating"
+        elif type kitty &> /dev/null; then
+            term="kitty --class floating"
+        fi
+    }
+}
+
+[[ "$TERMINAL" == "myterm" ]] && term="myterm --class floating"
+
+force_open=1
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -h|--help)
+            echo "Usage: $PROG"
+            echo
+            # shellcheck disable=SC2016
+            echo 'shows the properties of the focused window
+    
+    best bindings:
+    bindsym  $mod+question exec i3-prop
+    bindsym $a+$c+question exec i3-prop
+    
+    but if running from a terminal rather than a i3 key binding:
+    sleep 2; i3-prop'
+            exit 0
+            ;;
+	-o|--open)
+	    force_open=0
+	    ;;
+    esac
+    shift
+done
+
+TMP=/tmp/i3-prop-$$.tmp
+
+trap 'rm $TMP' EXIT
+
+$msg -t get_tree | jq '.. | select(.type?) | select(.focused==true)' > "$TMP"
+
+if [[ ! $force_open ]]; then
+	force_open=$( [[ ! ( "$1" || -t 1 ) ]] )
+fi
+
+if [[ ! "$force_open" ]]; then
+    cat "$TMP"
+else
+    # I prefer to popup a terminal eg:
+    if [[ "$term" ]]; then
+        $term -e less "$TMP"
+    else
+        $nag -l -m "i3-prop" < "$TMP"
+    fi
+fi
+
+# Local Variables:
+# mode: shell-script
+# time-stamp-pattern: "4/TIME_STAMP=\"%:y%02m%02d.%02H%02M%02S\""
+# eval: (add-hook 'before-save-hook 'time-stamp)
+# End:
+
+

@@ -21,6 +21,9 @@ function xc -d "xc: extract file"
 	else if string match -q -r '\.7z$' $archive
 		echo 7z x -o $outdir $archive
 		7z x -o $outdir $archive
+	else if string match -q -r '\.rar$' $archive
+		echo unrar x $archive $outdir/
+		unrar x $archive $outdir
 	else if string match -q -r '\.zip$' $archive
 		echo unzip $archive -d $outdir
 		unzip $archive -d $outdir
