@@ -1,0 +1,3 @@
+[submodule ".local/share/yadm/secret.git"]
+	path = .local/share/yadm/secret.git
+	url = https://github.com/cking/dotfiles_secret.git
