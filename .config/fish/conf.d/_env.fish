@@ -26,6 +26,7 @@ set -gx _JAVA_OPTIONS "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java" #java
 set -gx GNUPGHOME $XDG_DATA_HOME/gnupg #gpg
 set -gx NUGET_PACKAGES $XDG_CACHE_HOME/NuGetPackages #nuget / dotnet
 set -gx LESSHISTFILE $XDG_CACHE_HOME/less/history #less
+set -gx BUN_INSTALL "$XDG_DATA_HOME/bun" #bun
 
 # global env vars
 set -gx EDITOR /usr/bin/nvim
