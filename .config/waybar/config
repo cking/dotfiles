@@ -1,6 +1,21 @@
 {
     "clock":
     {
+        "calendar":
+        {
+            "format":
+            {
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>"
+            },
+            "mode": "year",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "weeks-pos": "left"
+        },
         "format": " {:%H:%M:%S}",
         "format-alt": " {:%Y-%m-%d}",
         "interval": 1,
@@ -10,7 +25,107 @@
     "cpu":
     {
         "format": " {load} {usage}%",
-        "on-click": "alacritty -e htop"
+        "on-click": "wezterm start htop"
+    },
+    "custom/lock":
+    {
+        "format": "󰍁",
+        "on-click": "swaylock",
+        "tooltip": false
+    },
+    "custom/power":
+    {
+        "format": "",
+        "on-click": "systemctl shutdown",
+        "tooltip": false
+    },
+    "custom/quit":
+    {
+        "format": "󰗼",
+        "on-click": "hyprctl dispatch exit",
+        "tooltip": false
+    },
+    "custom/reboot":
+    {
+        "format": "󰜉",
+        "on-click": "systemctl reboot",
+        "tooltip": false
+    },
+    "group/group-power":
+    {
+        "drawer":
+        {
+            "children-class": "not-power",
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules":
+        [
+            "custom/power",
+            "custom/quit",
+            "custom/lock",
+            "custom/reboot"
+        ],
+        "orientation": "inherit"
+    },
+    "hyprland/submap":
+    {
+        "format": "[{}]",
+        "max-length": 16,
+        "tooltip": true
+    },
+    "hyprland/workspaces":
+    {
+        "all-outputs": false,
+        "disable-scroll": true,
+        "format": " {icon} {name} ",
+        "format-icons":
+        {
+            "1": "",
+            "1: Main": "",
+            "2": "",
+            "2: Web": "",
+            "3": "",
+            "3: Dev": "",
+            "4": "",
+            "4: Games": "",
+            "5": "",
+            "5: Misc": "",
+            "6: Weeb": "",
+            "7: DL": "",
+            "8: IM": "",
+            "9: Music": "",
+            "activex": "",
+            "default": "",
+            "urgent": ""
+        },
+        "on-click": "activate",
+        "show-special": true,
+        "sort-by-number": true
+    },
+    "idle_inhibitor":
+    {
+        "format": "{icon}",
+        "format-icons":
+        {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "keyboard-state":
+    {
+        "capslock": true,
+        "format":
+        {
+            "capslock": " C {icon} ",
+            "numlock": " N {icon} "
+        },
+        "format-icons":
+        {
+            "locked": "",
+            "unlocked": ""
+        },
+        "numlock": true
     },
     "layer": "top",
     "memory":
@@ -18,18 +133,25 @@
         "format": " {percentage}%"
     },
     "modules-center":
-    [],
+    [
+        "hyprland/window"
+    ],
     "modules-left":
     [
         "sway/workspaces",
+        "hyprland/workspaces",
         "sway/mode",
+        "hyprland/submap",
         "wlr/taskbar",
-        "sway/window"
+        "sway/window",
+        "workspaces"
     ],
     "modules-right":
     [
+        "privacy",
+        "keyboard-state",
         "pulseaudio",
-        "custom/mediaplayer",
+        "mpris",
         "network",
         "network#eth",
         "network#wlan",
@@ -37,56 +159,112 @@
         "memory",
         "temperature",
         "battery",
+        "idle_inhibitor",
         "clock",
-        "tray"
+        "tray",
     ],
-    "mpd":
-    {},
-    "custom/mediaplayer":
+    "mpris":
     {
-        "format": "{icon}{}",
-        "return-type": "json",
-        "format-icons":
+        "dynamic-len": 50,
+        "format": "{status_icon} {player_icon} {dynamic}",
+        "format-stopped": "",
+        "interval": 0.5,
+        "player-icons":
         {
-            "Playing": " ",
-            "Paused": " "
+            "default": "🎵"
         },
-        "max-length": 70,
-        "exec": "playerctl -a metadata --format '{\"hack\": \"{{status}}\", \"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{status}} {{playerName}} : {{artist}} - {{markup_escape(title)}} [{{album}}]\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "on-click": "playerctl play-pause"
+        "status-icons":
+        {
+            "paused": "",
+            "playing": ""
+        }
     },
     "network":
     {
-        "interface": "*p*",
         "format-disconnected": "",
         "format-ethernet": " {ipaddr}",
         "format-wifi": " {ipaddr} ({signalStrength}%)",
+        "interface": "*p*",
         "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
         "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)"
     },
     "network#eth":
     {
-        "interface": "eth*",
         "format-disconnected": "",
         "format-ethernet": " {ipaddr}",
         "format-wifi": " {ipaddr} ({signalStrength}%)",
+        "interface": "eth*",
         "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
         "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)"
     },
     "network#wlan":
     {
-        "interface": "wlan*",
         "format-disconnected": "",
         "format-ethernet": " {ipaddr}",
         "format-wifi": " {ipaddr} ({signalStrength}%)",
+        "interface": "wl*",
         "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
         "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)"
+    },
+    "privacy":
+    {
+        "icon-size": 18,
+        "icon-spacing": 4,
+        "ignore":
+        [
+            {
+                "name": "cava",
+                "type": "audio-in"
+            },
+            {
+                "name": "obs",
+                "type": "screenshare"
+            }
+        ],
+        "ignore-monitor": true,
+        "modules":
+        [
+            {
+                "tooltip": true,
+                "tooltip-icon-size": 24,
+                "type": "screenshare"
+            },
+            {
+                "tooltip": true,
+                "tooltip-icon-size": 24,
+                "type": "audio-out"
+            },
+            {
+                "tooltip": true,
+                "tooltip-icon-size": 24,
+                "type": "audio-in"
+            }
+        ],
+        "transition-duration": 250
     },
     "pulseaudio":
     {
         "format": " {volume}%",
         "format-bluetooth": " {volume}% ",
-        "on-click": "pwvucontrol",
+        "format-icons":
+        {
+            "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+            "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+            "car": "",
+            "default":
+            [
+                "",
+                ""
+            ],
+            "hands-free": "",
+            "headphone": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": ""
+        },
+        "on-click": "pa-audio",
+        "on-click-right": "pavucontrol",
         "scroll-step": 5
     },
     "sway/mode":
@@ -96,8 +274,8 @@
     "sway/window":
     {
         "all-outputs": true,
-        "format": "  {}",
-        "icon": true
+        "format": " {}",
+        "icon": false
     },
     "sway/workspaces":
     {
@@ -115,8 +293,8 @@
             "7: DL": "",
             "8: IM": "",
             "9: Music": "",
+            "active": "",
             "default": "",
-            "focused": "",
             "urgent": ""
         }
     },
@@ -129,6 +307,7 @@
     },
     "tray":
     {
+        "icon-size": 16,
         "show-passive-items": true,
         "spacing": 10
     },

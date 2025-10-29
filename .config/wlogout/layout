@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "killall -USR1 swayidle",
+    "action" : "loginctl lock-session",
     "text" : "Lock",
     "keybind" : "l"
 }
@@ -12,7 +12,7 @@
 }
 {
     "label" : "logout",
-    "action" : "swaymsg exit",
+    "action" : "swaymsg exit; hyprctl dispatch exit",
     "text" : "Logout",
     "keybind" : "e"
 }

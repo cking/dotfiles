@@ -3,8 +3,9 @@ exec wpaperd
 exec playerctld daemon
 exec wobd
 exec wl-paste --watch cliphist store
+exec wl-clip-persist
 exec mako --font ProggyVector --background-color "#3c304caa" --text-color "#ffffff" --border-color "#ffffff" --icons 1 --markup 1 --actions 1 --history 1 --default-timeout 30000 --ignore-timeout 0 --height 300
 exec_always dex -a
 exec_always kanshi
 exec xsettingsd
-exec autotiling-rs
+exec autotiling-rs -w 1 -w 2 -w 3

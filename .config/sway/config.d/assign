@@ -1,3 +1,4 @@
+
 assign [app_id="firefox"] $ws2
 assign [app_id="librewolf"] $ws2
 assign [app_id="LibreWolf"] $ws2
@@ -6,6 +7,8 @@ assign [app_id="lutris"] $ws4
 assign [class="steam"] $ws4
 assign [app_id="mpv"] $ws6
 assign [class="discord"] $ws8
+assign [app_id="im.dino.Dino"] $ws8
+assign [class="SchildiChat"] $ws8
 assign [app_id="org.telegram.desktop"] $ws8
 assign [app_id="org.telegram"] $ws8
 assign [class="vesktop"] $ws8

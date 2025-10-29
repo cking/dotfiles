@@ -16,8 +16,8 @@
 	co = checkout
 	br = branch
 	bra = branch -a
-	diff = diff --word-diff
-	dc = diff --cached
+	dfw = diff --word-diff
+	dfc = diff --cached
 	amend = commit --amend
 	ci = commit --interactive
 	a = add -p
@@ -28,6 +28,25 @@
 	ri = rebase --interactive
 	r = rebase
 	prune = "!f(){ git fetch --prune origin && git branch --merged | grep -vwE 'main|master|trunk' | xargs git branch -d }; f"
+	dlog = -c diff.external=difft log --ext-diff
+	dshow = -c diff.external=difft show --ext-diff
+	ddiff = -c diff.external=difft diff
+	dl = dlog
+	ds = dshow
+	dft = ddiff
+	logg = log --graph --decorate --oneline --all
+	cm = commit
+	dff = diff
+	dfs = diff --staged
+	pwl = push --with-lease
+	oops = commit --amend --no-edit
+	aliases = !git config --get-regexp alias | sed -re 's/alias\\.(\\S*)\\s(.*)$/\\1 = \\2/g'
+	amend = commit --amend
+	uncommit = reset --soft HEAD~1
+	untrack = rm --cache --recursive --
+	dam = diff ‐‐diff-algorithm=myers
+	dap = diff ‐‐diff-algorithm=patience
+	dah = diff ‐‐diff-algorithm=histogram
 [format]
 	pretty = "%H %ci %ce %ae %d %s"
 [color]
@@ -36,8 +55,11 @@
 	editor = nvim
 	autocrlf = input
 	pager = delta
+	whitespace = -trailing-space
 [push]
 	default = matching
+	autoSetupRemote = true
+	followtags = true
 [commit]
 	gpgsign = true
 [gpg]
@@ -47,13 +69,15 @@
 	colorMoved = default
 	compactionHeuristic = true
 	tool = difftastic
+	colorMovedWS = allow-indentation-change
+	context = 10
 [cola]
 	spellcheck = false
 [color "diff"]
 	commit = yellow reverse
 [merge]
 	log = true
-	conflictstyle = diff3
+	conflictStyle = zdiff3
 	tool = nvimdiff
 [mergetool]
 	prompt = false
@@ -64,6 +88,8 @@
 [rebase]
 	autosquash = true
 	autostash = true
+	missingCommitsCheck = error
+	updateRefs = true
 [tag]
 	sort = version:refname
 [gitflow "branch"]
@@ -90,3 +116,15 @@
     cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
 [mergetool "nvimdiffx"]
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
+[rerere]
+	enabled = true
+[help]
+	autocorrect = 10
+[fetch]
+	prune = true
+	prunetags = true
+[log]
+	date = iso
+	abbrevCommit = true
+[status]
+	submoduleSummary = true

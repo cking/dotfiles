@@ -18,6 +18,10 @@ input type:touchpad {
     tap_button_map lrm
 }
 
+input type:tablet_tool {
+    map_to_output HDMI-A-1
+}
+
 seat * {
     #hide_cursor when-typing enable
     #xcursor_theme path size

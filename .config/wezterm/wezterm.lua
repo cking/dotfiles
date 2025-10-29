@@ -15,6 +15,10 @@ config.keys = {
 	{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 	{ key = "c", mods = "LEADER|CTRL", action = act.SpawnTab("DefaultDomain") },
 	{ key = " ", mods = "LEADER", action = act.ShowLauncher },
+	{ key = " ", mods = "LEADER|CTRL", action = act.ShowLauncher },
+	{ key = "d", mods = "LEADER", action = act.ClearScrollback("ScrollbackOnly") },
+	{ key = "d", mods = "LEADER|CTRL", action = act.ClearScrollback("ScrollbackAndViewport") },
+	{ key = "l", mods = "LEADER", action = act.ClearScrollback("ScrollbackAndViewport") },
 }
 
 return config

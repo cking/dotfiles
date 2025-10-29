@@ -28,22 +28,22 @@ window#waybar {
 	background: rgba(255, 255, 255, 0.1);
 }
 
-#workspaces button.focused {
+#workspaces button.active, #workspaces button.focused {
     background: rgba(0, 0, 0, 0.3);
 }
 
-#mode {
+#submap, #mode {
     background: rgba(0, 0, 0, 0.3);
     font-style: italic;
 }
 
-#mode, #workspaces button.focused {
+#submap, #mode, #workspaces button.focused, #workspaces button.active {
     border-bottom: 3px solid rgba(255, 255, 255, 0.8);
 }
 
 #clock,
 #mpd,
-#custom-mediaplayer,
+#mpris,
 #battery,
 #cpu,
 #memory,
@@ -52,18 +52,33 @@ window#waybar {
 #pulseaudio,
 #custom-pape,
 #tray,
+#privacy,
+#keyboard-state,
+#idle_inhibitor,
+#submap,
 #mode {
     padding: 0 10px;
     margin: 0 5px;
 }
 
-#custom-mediaplayer,
-#mpd {
+#mpris {
     background-color: rgba(255, 128, 128, 0.6);
 }
 
 #clock {
     background-color: rgba(128, 128, 128, 0.6);
+}
+
+#privacy {    
+    background-color: rgba(217, 194, 253, 0.6);
+}
+
+#keyboard-state {    
+    background-color: rgba(12, 34, 123, 0.6);
+}
+
+#idle_inhibitor {    
+    background-color: rgba(65, 43, 21, 0.6);
 }
 
 #battery {
