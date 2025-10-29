@@ -5,9 +5,11 @@ set -eu
 yadm=$(dirname "$0")
 cd "$yadm"
 
-. "$yadm"/functions.sh
-
-install_package yadm neovim eza pet fish fastfetch keychain zoxide bat
+read -p "Do you want to run system bootstrap? (y/N) " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    curl -Ssf https://pkgx.sh | sh -s -- uvx --from ansible-core --with ansible ansible-playbook -c local -i localhost, --ask-become-pass playbook.yml
+fi
 
 . "$HOME"/.profile
 

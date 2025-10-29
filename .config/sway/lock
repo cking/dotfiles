@@ -1,0 +1,3 @@
+#!/bin/sh
+
+gtklock -m playerctl-module -m powerbar-module -m userinfo-module --show-labels --linked-buttons
