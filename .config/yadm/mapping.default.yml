@@ -1,0 +1,11 @@
+package_mapping:
+  neovim: vim
+  eza: false  # Not available on most distros
+  intelli-shell: false
+  fish: fish
+  fastfetch: false
+  keychain: keychain
+  zoxide: false
+  bat: false
+  fd: fd-find
+  ripgrep: ripgrep

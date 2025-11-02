@@ -1,0 +1,41 @@
+desired_packages:
+  - neovim
+  - eza
+  - intelli-shell
+  - fish
+  - fastfetch
+  - keychain
+  - zoxide
+  - bat
+  - fd
+  - ripgrep
+  - pavucontrol
+  - librewolf
+  - fuzzel
+  - wezterm
+  - wlogout
+  - wl-clipboard
+  - wl-clip-persist
+  - cliphist
+  - sway
+  - waybar
+  - swayidle
+  - gtklock
+  - gtklock-playerctl-module
+  - gtklock-powerbar-module
+  - gtklock-userinfo-module
+  - playerctl
+  - wob
+  - mako
+  - dex
+  - kanshi
+  - xsettings
+  - autotiling-rs
+  - wpaperd
+  - nwg-drawer
+  - bemenu
+  - tofi
+  - brightnessctl
+
+# todo: nwg-greet
+

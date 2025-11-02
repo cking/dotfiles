@@ -1,0 +1,52 @@
+- name: Bootstrapping...
+  hosts: localhost
+  become: yes
+
+  vars_files:
+    - packages.yml
+
+  tasks:
+    - name: Detected system
+      debug:
+        msg: "OS Family: {{ ansible_os_family }} | Distribution: {{ ansible_distribution }}"
+    
+    - name: Load with fallback
+      include_vars:
+        file: "{{ item }}"
+      with_first_found:
+        - "mapping.{{ ansible_os_family | lower }}.yml"
+        - "mapping.{{ ansible_distribution | lower }}.yml"
+        - mapping.default.yml
+
+    - name: Update package repository and upgrade system
+      block:
+        - name: Arch
+          pacman:
+            update_cache: true
+            upgrade: true
+          when: ansible_os_family == "Archlinux"
+
+        - name: Update cache (Debian/Ubuntu)
+          apt:
+            update_cache: yes
+            upgrade: safe
+          when: ansible_os_family == "Debian"
+
+        - name: Update cache (RedHat/Fedora)
+          dnf:
+            update_cache: yes
+          when: ansible_os_family == "RedHat"
+
+    - name: Install software packages
+      package:
+        name: "{{ package_mapping[item] }}"
+        state: present
+      loop: "{{ desired_packages }}"
+      when:
+        - item in package_mapping
+        - package_mapping[item] != false
+      register: install_results
+
+    - name: Skipped packages
+      debug:
+        msg: "Skipped: {{ install_results.results | selectattr('skipped', 'defined') | selectattr('skipped') | map(attribute='item') | list }}"

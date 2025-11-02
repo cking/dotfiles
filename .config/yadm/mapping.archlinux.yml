@@ -1,0 +1,43 @@
+package_mapping:
+  neovim: neovim
+  eza: eza
+  intelli-shell: intelli-shell
+  fish: fish
+  fastfetch: fastfetch
+  keychain: keychain
+  zoxide: zoxide
+  bat: bat
+  fd: fd
+  ripgrep: ripgrep
+  pavucontrol: pavucontrol
+  librewolf: librewolf
+  fuzzel: fuzzel
+  wezterm: wezterm
+  wlogout: wlogout
+  wl-clipboard: wl-clipboard
+  wl-clip-persist: wl-clip-persist
+  cliphist: cliphist
+  sway: swayfx
+  waybar: waybar
+  swayidle: swayidle
+  gtklock: gtklock
+  gtklock-playerctl-module: gtklock-playerctl-module
+  gtklock-powerbar-module: gtklock-powerbar-module
+  gtklock-userinfo-module: gtklock-userinfo-module
+  playerctl: playerctl
+  wob: wob
+  mako: mako
+  dex: dex
+  kanshi: kanshi
+  xsettings: xsettingsd
+  autotiling-rs: autotiling-rs
+  wpaperd: wpaperd
+  nwg-drawer: nwg-drawer
+  bemenu: bemenu
+  tofi: tofi
+  shotman: shotman
+  brightnessctl: brightnessctl
+# sway
+# autotiling-rs
+# bemenu
+# shotman
