@@ -34,6 +34,7 @@ x-scheme-handler/discord=vesktop.desktop;
 x-scheme-handler/element=schildichat-desktop.desktop;SchildiChat.desktop;
 x-scheme-handler/insomnia=insomnium.desktop;
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop;
+image/gif=swayimg.desktop;
 
 [Default Applications]
 application/json=sublime_text.desktop;

@@ -54,6 +54,6 @@ export VISUAL="/usr/bin/nvim"
 export PAGER="/usr/bin/less"
 export GPG_TTY="$(tty)"
 
-zap .local/share/bun/bin .local/share/pnpm .local/share/npm/bin .local/share/JetBrains/Toolbox/scripts .local/bin .local/share/go/pkg/bin .dotnet .local/share/cargo/bin .dotnet/tools
+zap .local/share/bun/bin .local/share/pnpm .local/share/npm/bin .local/share/JetBrains/Toolbox/scripts .local/bin .local/share/go/pkg/bin .dotnet .local/share/cargo/bin .dotnet/tools .local/deno/bin
 
 unset -f zap
